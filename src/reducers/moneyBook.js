@@ -42,6 +42,11 @@ export const moneyBookReducer = (state = moneyBookStore, action) => {
                 ...state,
                 price: !action.value
             }
+
+        case 'SET_DATA_IN_MONEY_BOOK':
+            return {
+                
+            }
         
         default: return state
     }

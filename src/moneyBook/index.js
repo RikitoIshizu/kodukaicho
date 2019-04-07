@@ -34,7 +34,7 @@ export class MoneyBook extends React.Component {
     }
 
     // 収支を入力する
-    addBook(date, item, amount) {
+    addBook(date, item, amount){
         const book = {
             date: date,
             item: item,
@@ -74,6 +74,10 @@ export class MoneyBook extends React.Component {
         })
     }
 
+    onClickAdd() {
+        return null
+    }
+
     // 描画
     render() {
         return(
@@ -89,6 +93,7 @@ export class MoneyBook extends React.Component {
                     onChnagePayingIn={this.onChnagePayingIn}
                     onChangeDate={this.onChangeDate}
                     onChangeItem={this.onChangeItem}
+                    onClickAdd={this.onClickAdd}
                 />
             </div>
         )
@@ -101,12 +106,12 @@ const Title = () => {
     )
 }
 
-Title.propTypes = {
-
+MoneyBook.propTypes = {
     onChnagePayingIn : PropTypes.func.isRequired,
     onChangeDate     : PropTypes.func.isRequired,
     onChangeItem     : PropTypes.func.isRequired,
-    onChangePrice    : PropTypes.func.isRequired
+    onChangePrice    : PropTypes.func.isRequired,
+    onClickAdd       : PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
@@ -120,7 +125,8 @@ const mapDispatchToProps = (dispatch) => {
         onChnagePayingIn : (payingIn) => dispatch(moneyBookAction.chnageIncomeAndExpenditure(payingIn)),
         onChangeDate     : (date) => dispatch(moneyBookAction.inputDate(date)),
         onChangeItem     : (item) => dispatch(moneyBookAction.inputItem(item)),
-        onChangePrice    : (price) => dispatch(moneyBookAction.inputPrice(price))
+        onChangePrice    : (price) => dispatch(moneyBookAction.inputPrice(price)),
+        onClickAdd       : () => dispatch(moneyBookAction.setDataInMoneyBook())
     }
 }
 

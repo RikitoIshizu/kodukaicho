@@ -5,4 +5,4 @@ const rootReducer = combineReducers({
     moneyBookReducer
 })
 
-export default rootRedu
+export default rootReducer

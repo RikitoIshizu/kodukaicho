@@ -53,3 +53,10 @@ export const chnageIncomeAndExpenditure = (change) => {
         change
     }
 }
+
+// 小遣い帳にデータをセットする
+export const setDataInMoneyBook = () => {
+    return {
+        type: 'SET_DATA_IN_MONEY_BOOK'
+    }
+}
